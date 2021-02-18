@@ -2,8 +2,10 @@
 
 
 let bombAntal = 10;
+let antalVisade = 0;
 let koordinat = document.getElementsByClassName("knapp")
 let koordinatVärde = new Array(64);
+let koordinatVisad = new Array(64);
 let bombPlats = 65;
 let reset = document.getElementsByClassName("reset");
 let resultat = document.querySelector("[data-resultat]");
@@ -18,6 +20,8 @@ for (let i = 0; i < 64; i++) {
     button.classList.add("knapp");
     button.addEventListener("click", testLocation)
     grid.append(button);
+
+    koordinatVisad[i] = false;
 }
 
 update();
@@ -34,13 +38,26 @@ function testLocation(event) {
             resultat.innerHTML = "Du förlorade!";
             resultat.style.color = "black";
             gameOver = true;
-        } else if (koordinatVärde[event.target.getAttribute("data-kordinat")] == 0) {
-            clear0Värde(event.target.getAttribute("data-kordinat"));
         } else {
-            //visa nummer
-            koordinat[event.target.getAttribute("data-kordinat")].innerHTML = koordinatVärde[event.target.getAttribute("data-kordinat")];
-            koordinat[event.target.getAttribute("data-kordinat")].style.backgroundColor = "lightgray";
+            if (koordinatVisad[event.target.getAttribute("data-kordinat")] == false)
+            {
+                antalVisade++;
+            }
+            koordinatVisad[event.target.getAttribute("data-kordinat")] = true;
+            if (koordinatVärde[event.target.getAttribute("data-kordinat")] == 0) {
+                koordinat[event.target.getAttribute("data-kordinat")].style.backgroundColor = "lightgray";
+            } else {
+                //visa nummer
+                koordinat[event.target.getAttribute("data-kordinat")].innerHTML = koordinatVärde[event.target.getAttribute("data-kordinat")];
+                koordinat[event.target.getAttribute("data-kordinat")].style.backgroundColor = "lightgray";
+            }
         }
+        if (antalVisade == (64 - bombAntal)) {
+            gameOver = true;
+            resultat.style.color = "black";
+            resultat.innerHTML = "Du vann!";
+        }
+        console.log(antalVisade);
     }
 }
 
@@ -49,6 +66,8 @@ function testLocation(event) {
 function update() {
     gameOver = false;
     resultat.style.color = "white";
+    resultat.innerHTML = "Easter egg :p";
+    antalVisade = 0;
     if (document.querySelector("[data-number]").value == "") {
         bombAntal = 10;
     } else {
@@ -60,6 +79,8 @@ function update() {
         koordinatVärde[i] = 0;
         koordinat[i].style.backgroundColor = "gray";
         koordinat[i].innerHTML = "";
+
+        koordinatVisad[i] = false;
     }
     
     for (let i = 0; i < bombAntal; i++) {
@@ -117,9 +138,4 @@ function update() {
 
         }
     }
-}
-
-function clear0Värde(position) {
-    //koordinat[position].innerHTML = koordinatVärde[position];
-    koordinat[position].style.backgroundColor = "lightgray";
 }
