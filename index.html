@@ -12,79 +12,17 @@
     </header>
     <main>
         <div class="center">
-            <div class="grid">
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-                <button class="knapp"></button>
+            <form onsubmit="update(); return false">
+            <label>
+                Antal bomber:
+                <input required type="number" name="antalBomber" placeholder="10" data-number />
+            </label>
+            </form>
+            <div class="resultat" data-resultat>test</div>
+            <div class="grid" data-grid>
                 
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-                <button class="knapp"></button>
-                <button class="knapp"></button>
             </div>
+            <button class="reset" onclick="update()" >Reset</button>
         </div>
     </main>
     <footer></footer>

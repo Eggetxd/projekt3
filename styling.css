@@ -6,17 +6,28 @@ main {
     height: 100%;
 }
 
+form {
+    margin-bottom: 15px;
+}
+
 .center {
     height: 100%;
     display:flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+
+.resultat {
+    color: white;
 }
 
 .grid {
     display: grid;
     grid-template: repeat(8, 1fr) / repeat(8, 1fr);
     background-color: lightgray;
+    margin-top: 15px;
+    margin-bottom: 40px;
 }
 
 .knapp {
