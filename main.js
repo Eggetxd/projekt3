@@ -33,29 +33,30 @@ function testLocation(event) {
             for (let i = 0; i < 64; i ++) {
                 if (koordinatVärde[i] >= 10) {
                     koordinat[i].style.backgroundColor = "red";
+                    koordinat[i].style.borderColor = "darkred";
                 }
             }
             resultat.innerHTML = "Du förlorade!";
             resultat.style.color = "black";
             gameOver = true;
+            grid.style.backgroundColor = "red";
         } else {
             if (koordinatVisad[event.target.getAttribute("data-kordinat")] == false)
             {
                 antalVisade++;
             }
             koordinatVisad[event.target.getAttribute("data-kordinat")] = true;
-            if (koordinatVärde[event.target.getAttribute("data-kordinat")] == 0) {
-                koordinat[event.target.getAttribute("data-kordinat")].style.backgroundColor = "lightgray";
-            } else {
-                //visa nummer
+            koordinat[event.target.getAttribute("data-kordinat")].style.backgroundColor = "lightgray";
+            koordinat[event.target.getAttribute("data-kordinat")].style.borderColor = "gray";
+            if (koordinatVärde[event.target.getAttribute("data-kordinat")] != 0) {
                 koordinat[event.target.getAttribute("data-kordinat")].innerHTML = koordinatVärde[event.target.getAttribute("data-kordinat")];
-                koordinat[event.target.getAttribute("data-kordinat")].style.backgroundColor = "lightgray";
             }
         }
         if (antalVisade == (64 - bombAntal)) {
             gameOver = true;
             resultat.style.color = "black";
             resultat.innerHTML = "Du vann!";
+            grid.style.backgroundColor = "rgb(0, 190, 0)";
         }
         console.log(antalVisade);
     }
@@ -68,6 +69,7 @@ function update() {
     resultat.style.color = "white";
     resultat.innerHTML = "Easter egg :p";
     antalVisade = 0;
+    grid.style.backgroundColor = "rgb(65, 65, 65)";
     if (document.querySelector("[data-number]").value == "") {
         bombAntal = 10;
     } else {
@@ -77,10 +79,12 @@ function update() {
 
     for (let i = 0; i < 64; i++) {
         koordinatVärde[i] = 0;
-        koordinat[i].style.backgroundColor = "gray";
+        koordinat[i].style.backgroundColor = "rgb(101, 101, 255)";
         koordinat[i].innerHTML = "";
 
         koordinatVisad[i] = false;
+
+        koordinat[i].style.borderColor = "rgb(59, 59, 158)";
     }
     
     for (let i = 0; i < bombAntal; i++) {

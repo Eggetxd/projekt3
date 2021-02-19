@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     height: 97vh;
 }
@@ -25,9 +30,10 @@ form {
 .grid {
     display: grid;
     grid-template: repeat(8, 1fr) / repeat(8, 1fr);
-    background-color: lightgray;
+    background-color: rgb(59, 59, 158);
     margin-top: 15px;
     margin-bottom: 40px;
+    padding: 2px;
 }
 
 .knapp {
@@ -35,4 +41,13 @@ form {
     width: 30px;
     
     background-color: lightgray;
+    
+    border-color: darkgreen;  
+    outline: none;
+}
+
+.reset {
+    padding: 1px;
+    padding-left: 3px;
+    padding-right: 3px;
 }
