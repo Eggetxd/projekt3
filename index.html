@@ -9,21 +9,29 @@
 </head>
 <body>
     <header>
+        <h1>Minesweeper</h1>
     </header>
     <main>
-        <div class="center">
-            <form onsubmit="update(); return false">
-            <label>
-                Antal bomber:
-                <input type="number" name="antalBomber" placeholder="10" min="1" max="63" data-number />
-            </label>
-            </form>
-            <div class="resultat" data-resultat>Easter egg :p</div>
-            <div class="grid" data-grid>
+            <div class="center">
+                <form onsubmit="update(); return false">
+                <label>
+                    Antal bomber:
+                    <input type="number" name="antalBomber" placeholder="10" min="1" max="63" data-number />
+                </label>
+                </form>
+                <div class="resultat" data-resultat>Easter egg :p</div>
+                <div class="grid" data-grid>
                 
+                </div>
+                <button class="reset" onclick="update()" >Reset</button>
             </div>
-            <button class="reset" onclick="update()" >Reset</button>
-        </div>
+            <div class="center">
+                <h1>Hur man spelar:</h1>
+                <p>Klicka på en ruta för att visa den rutan. Siffran som dyker upp säger hur många minor det är runt rutan. Är dyker det inte upp någon siffra betyder det att det inte finns några minor runt rutan och då är det säkert att klicka på alla andra rutor runt omkring, så länge du inte förlorat såklart.</p>
+                <p>Om du klickar på en ruta som blir röd har du klickat på en mina, då har du förlorat och alla minor visas. </p>
+                <p>För att vinna måste du klicka på alla rutor som inte är minor så du måste komma ihåg var minorna ligger.</p>
+                <p>Klicka på reset-knappen under minfältet för att köra igen, till exempel om du vunnit eller förlorat måste du klicka på reset-knappen för att köra igen. </p>
+            </div>
     </main>
     <footer></footer>
 </body>
